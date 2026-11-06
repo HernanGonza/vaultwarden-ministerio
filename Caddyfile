@@ -1,0 +1,9 @@
+{
+    skip_install_trust
+    default_sni 10.0.0.231
+}
+
+https://10.0.0.231:4444 {
+    tls internal
+    reverse_proxy vaultwarden:80
+}

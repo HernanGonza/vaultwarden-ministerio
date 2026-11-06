@@ -1,0 +1,7 @@
+# Datos y secretos: NUNCA al repo
+.env
+vw-data/
+caddy-data/
+caddy-config/
+*.bak
+backup-*/
