@@ -8,8 +8,13 @@ Hay que partir del archivo de la versión que corre en el servidor, así que se 
     | python3 branding/tools/generar-locale-es.py > branding/locales/es/messages.json
 
 Ejecutar de nuevo después de actualizar Vaultwarden.
+
+Además traduce los textos que Bitwarden dejó en inglés dentro del español, usando tools/traducciones-es.json
+({clave: {en: original, es: traducción}}). Una traducción solo se aplica si el texto actual sigue siendo el
+original en inglés; si en una versión nueva aparecen textos en inglés nuevos, quedan en inglés hasta
+agregarlos a ese archivo.
 """
-import json, re, sys
+import json, os, re, sys
 
 G = "gestor de claves"
 # Orden importa: lo más específico primero. Se cuida el género (la caja -> el gestor).
@@ -45,9 +50,16 @@ def conv(t):
         t = re.sub(pat, rep, t)
     return t
 
+AQUI = os.path.dirname(os.path.abspath(__file__))
+with open(os.path.join(AQUI, "traducciones-es.json"), encoding="utf-8") as fh:
+    TRAD = json.load(fh)
+
 d = json.load(sys.stdin)
-for v in d.values():
+for k, v in d.items():
     if isinstance(v, dict) and isinstance(v.get("message"), str):
+        t = TRAD.get(k)
+        if t and v["message"] == t["en"]:
+            v["message"] = t["es"]
         v["message"] = conv(v["message"])
 json.dump(d, sys.stdout, ensure_ascii=False, indent=2)
 print()

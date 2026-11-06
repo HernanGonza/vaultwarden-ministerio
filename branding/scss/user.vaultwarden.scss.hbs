@@ -214,7 +214,9 @@ div[class*="tw-opacity-[.11]"][class*="[&_svg]"] { display: none !important; }
 
 /* ───────── Pantalla de login ───────── */
 /* Subir el formulario: menos aire arriba y hero más compacto */
-bit-landing-content > div { padding-top: 0.5rem !important; }
+bit-landing-content > div { padding-top: 0.25rem !important; padding-bottom: 0.5rem !important; }
+bit-landing-content bit-base-card { margin-bottom: 0.75rem !important; }
+bit-landing-header header a { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
 bit-landing-hero > div { margin-bottom: 0.75rem !important; }
 bit-landing-hero h1 { margin-top: 0.25rem !important; margin-bottom: 0.25rem !important; }
 bit-landing-hero > div > div:first-child { height: auto !important; }
@@ -265,11 +267,21 @@ bit-nav-logo a:has(> bit-svg) bit-svg::after {
 bit-nav-logo a:has(> bit-svg) bit-svg::before,
 bit-nav-logo a:has(> bit-svg) bit-svg::after { color: #fff; }
 
-/* Menú lateral colapsado: el ícono de Vaultwarden se cambia por la flor */
-bit-nav-logo bit-nav-item a:before {
-  background-image: url("../images/ministerio/flor-lapacho.svg") !important;
-  background-size: contain !important;
-  height: 28px !important;
+/* Menú lateral colapsado: solo la flor, centrada en la misma columna que los íconos (sin texto ni scroll) */
+bit-nav-logo a[class*="!tw-h-[55px]"] {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  height: 3.25rem !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+bit-nav-logo a[class*="!tw-h-[55px]"] bit-svg { display: none !important; }
+bit-nav-logo a[class*="!tw-h-[55px]"]::before {
+  width: 1.75rem;
+  height: 1.75rem;
+  flex: none;
 }
 
 /* Ilustración del hero: la caja fuerte se cambia por la flor */
@@ -277,18 +289,11 @@ bit-landing-hero bit-svg svg { display: none; }
 bit-landing-hero bit-svg::before {
   content: "";
   display: block;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   background: url("../images/ministerio/flor-lapacho.svg") center / contain no-repeat;
   filter: drop-shadow(0 6px 14px rgb(201 52 108 / 0.28));
 }
 
-/* Pie del login: sin textos de Vaultwarden/Bitwarden, solo el Ministerio */
-bit-landing-footer footer > div:nth-of-type(n+2),
-bit-landing-footer footer > br { display: none !important; }
-bit-landing-footer footer::after {
-  content: "Ministerio de Ecología y RNR · Misiones";
-  display: block;
-  font-size: 0.8rem;
-  color: rgb(var(--color-text-muted));
-}
+/* Pie del login: se saca entero (textos de Vaultwarden/Bitwarden y selector de servidor) para que no haya scroll */
+bit-landing-footer { display: none !important; }
