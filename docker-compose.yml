@@ -10,6 +10,7 @@ services:
       - ./branding/scss:/data/templates/scss:ro                  # CSS de usuario (user.vaultwarden.scss.hbs)
       - ./branding/fonts:/web-vault/fonts/ministerio:ro          # tipografía Oak Sans
       - ./branding/images:/web-vault/images/ministerio:ro        # flor del lapacho (logo)
+      - ./branding/locales/es/messages.json:/web-vault/locales/es/messages.json:ro   # textos en español ("gestor de claves")
       - ./branding/favicon/favicon.ico:/web-vault/favicon.ico:ro
       - ./branding/favicon/favicon-16x16.png:/web-vault/images/favicon-16x16.png:ro
       - ./branding/favicon/favicon-32x32.png:/web-vault/images/favicon-32x32.png:ro

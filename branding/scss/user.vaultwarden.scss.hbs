@@ -206,9 +206,22 @@ bit-base-card,
 bit-card,
 .tw-rounded-xl { border-radius: 1.25rem; }
 
+/* ───────── Pantalla de carga (Ctrl+Shift+R) y fondo decorativo ───────── */
+/* Logo de Vaultwarden de la pantalla de carga: se saca (queda solo el spinner) */
+img.new-logo-themed { display: none !important; }
+/* Dibujo decorativo de fondo (carga y login) */
+div[class*="tw-opacity-[.11]"][class*="[&_svg]"] { display: none !important; }
+
 /* ───────── Pantalla de login ───────── */
-/* Logo del encabezado: flor del lapacho + ECOLOGÍA / MISIONES (reemplaza el de Vaultwarden) */
-bit-landing-header header a {
+/* Subir el formulario: menos aire arriba y hero más compacto */
+bit-landing-content > div { padding-top: 0.5rem !important; }
+bit-landing-hero > div { margin-bottom: 0.75rem !important; }
+bit-landing-hero h1 { margin-top: 0.25rem !important; margin-bottom: 0.25rem !important; }
+bit-landing-hero > div > div:first-child { height: auto !important; }
+
+/* Logo del encabezado y del menú: flor del lapacho + ECOLOGÍA / MISIONES (reemplaza el de Vaultwarden) */
+bit-landing-header header a,
+bit-nav-logo a:has(> bit-svg) {
   display: grid !important;
   grid-template-columns: auto auto;
   align-items: center;
@@ -216,7 +229,8 @@ bit-landing-header header a {
   column-gap: 0.7rem;
   width: auto !important;
 }
-bit-landing-header header a::before {
+bit-landing-header header a::before,
+bit-nav-logo a:has(> bit-svg)::before {
   content: "";
   grid-row: 1;
   width: 2.5rem;
@@ -224,9 +238,12 @@ bit-landing-header header a::before {
   background: url("../images/ministerio/flor-lapacho.svg") center / contain no-repeat;
   filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.18));
 }
-bit-landing-header header a bit-svg { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
-bit-landing-header header a bit-svg svg { display: none; }
-bit-landing-header header a bit-svg::before {
+bit-landing-header header a bit-svg,
+bit-nav-logo a:has(> bit-svg) bit-svg { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+bit-landing-header header a bit-svg svg,
+bit-nav-logo a:has(> bit-svg) bit-svg svg { display: none !important; }
+bit-landing-header header a bit-svg::before,
+bit-nav-logo a:has(> bit-svg) bit-svg::before {
   content: "ECOLOGÍA";
   font-size: 1.2rem;
   font-weight: 500;
@@ -234,7 +251,8 @@ bit-landing-header header a bit-svg::before {
   line-height: 1;
   color: rgb(var(--color-primary-600));
 }
-bit-landing-header header a bit-svg::after {
+bit-landing-header header a bit-svg::after,
+bit-nav-logo a:has(> bit-svg) bit-svg::after {
   content: "MISIONES";
   margin-top: 0.22rem;
   font-size: 0.62rem;
@@ -243,17 +261,34 @@ bit-landing-header header a bit-svg::after {
   line-height: 1;
   color: rgb(var(--color-primary-600));
 }
+/* En el menú lateral el fondo es verde oscuro: texto claro */
+bit-nav-logo a:has(> bit-svg) bit-svg::before,
+bit-nav-logo a:has(> bit-svg) bit-svg::after { color: #fff; }
+
+/* Menú lateral colapsado: el ícono de Vaultwarden se cambia por la flor */
+bit-nav-logo bit-nav-item a:before {
+  background-image: url("../images/ministerio/flor-lapacho.svg") !important;
+  background-size: contain !important;
+  height: 28px !important;
+}
 
 /* Ilustración del hero: la caja fuerte se cambia por la flor */
 bit-landing-hero bit-svg svg { display: none; }
 bit-landing-hero bit-svg::before {
   content: "";
   display: block;
-  width: 5rem;
-  height: 5rem;
+  width: 3.5rem;
+  height: 3.5rem;
   background: url("../images/ministerio/flor-lapacho.svg") center / contain no-repeat;
   filter: drop-shadow(0 6px 14px rgb(201 52 108 / 0.28));
 }
 
-/* Se saca el dibujo decorativo de fondo de Vaultwarden */
-auth-anon-layout div[class*="tw-opacity-[.11]"] { display: none; }
+/* Pie del login: sin textos de Vaultwarden/Bitwarden, solo el Ministerio */
+bit-landing-footer footer > div:nth-of-type(n+2),
+bit-landing-footer footer > br { display: none !important; }
+bit-landing-footer footer::after {
+  content: "Ministerio de Ecología y RNR · Misiones";
+  display: block;
+  font-size: 0.8rem;
+  color: rgb(var(--color-text-muted));
+}

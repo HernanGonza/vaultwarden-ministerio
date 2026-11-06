@@ -1,12 +1,12 @@
 {
-  "lastQuery": "ok, lo mando al server entonces. ya cambiaste todas las pantallas?",
+  "lastQuery": "igual, le pusiste \"cajas fuertes\", no me gusta, ponele gestor de claves",
   "perAgentQuery": {},
   "graftReads": 0,
   "sourceReads": 0,
   "savedTokens": 0,
   "injectedPointers": [],
   "nudges": 0,
-  "inputCostMicros": 167231,
-  "inputTokensBilled": 447833,
-  "lastBillingUuid": "efe7b237-094b-422e-b396-2bd9bf24411d"
+  "inputCostMicros": 1080383,
+  "inputTokensBilled": 3780026,
+  "lastBillingUuid": "6fdfc6b5-7dd5-4d75-a939-e398a1b752b2"
 }

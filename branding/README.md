@@ -9,6 +9,7 @@ botones en píldora. Funciona en tema claro y oscuro.
 | `fonts/` | Oak Sans (licencia OFL, ver `OFL.txt`). | `/web-vault/fonts/ministerio` |
 | `images/flor-lapacho.svg` | Logo (flor). | `/web-vault/images/ministerio` |
 | `favicon/` | Favicon, apple-touch, íconos android. Reemplazan los de Vaultwarden. | archivo por archivo, ver `docker-compose.yml` |
+| `locales/es/messages.json` | Español del front con "caja fuerte" cambiado por "gestor de claves". Se genera con `tools/generar-locale-es.py` (el comando está en el encabezado del script) y hay que regenerarlo al actualizar Vaultwarden. | `/web-vault/locales/es/messages.json` |
 | `tools/generar-iconos.py` | Regenera `favicon/` desde la flor (`pip install pillow`). | — |
 
 ## Aplicar cambios en el servidor
@@ -33,6 +34,7 @@ ignore el archivo y muestre el tema original (avisa en `docker logs vaultwarden`
 
 ## Limitaciones
 
+- El título de la pestaña ("Vaultwarden Web") lo pone el JavaScript del front, y el texto del manifest también: no se cambian desde CSS.
 - El color de la barra del navegador en móviles (`theme-color`) y el nombre en el manifest vienen del `index.html`
   del web vault; no se cambian desde CSS.
 - Si se actualiza Vaultwarden y cambia el front, algún selector fino (logo, ilustración) podría necesitar ajuste.
