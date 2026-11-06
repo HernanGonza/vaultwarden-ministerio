@@ -1,0 +1,12 @@
+{
+  "lastQuery": "ok, lo mando al server entonces. ya cambiaste todas las pantallas?",
+  "perAgentQuery": {},
+  "graftReads": 0,
+  "sourceReads": 0,
+  "savedTokens": 0,
+  "injectedPointers": [],
+  "nudges": 0,
+  "inputCostMicros": 167231,
+  "inputTokensBilled": 447833,
+  "lastBillingUuid": "efe7b237-094b-422e-b396-2bd9bf24411d"
+}

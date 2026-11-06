@@ -1,0 +1,259 @@
+/* ============================================================================
+   Tema del Ministerio de Ecología y RNR de Misiones para Vaultwarden.
+   Mismo lenguaje visual que la Wiki (Brandbook 2024): verdes institucionales,
+   beige, rosa del lapacho, Oak Sans, botones en píldora y esquinas redondeadas.
+   Se carga como "scss/user.vaultwarden.scss" (ver docker-compose.yml).
+   Las variables RGB son tríos "R G B" (el front las usa con rgb(var(--x) / alpha)).
+   ============================================================================ */
+
+@font-face {
+  font-family: "Oak Sans";
+  src: url("../fonts/ministerio/OakSans-Variable.ttf") format("truetype");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ───────── Tema claro ───────── */
+:root,
+.theme_light {
+  --color-shadow: 31 51 41;
+
+  --color-background: 255 255 255;      /* tarjetas, paneles */
+  --color-background-alt: 245 243 239;  /* fondo de página (beige) */
+  --color-background-alt2: 62 108 81;   /* franjas de marca (verde) */
+  --color-background-alt3: 31 51 41;    /* panel del menú */
+  --color-background-alt4: 22 38 30;    /* ítem activo del menú */
+
+  --color-primary-100: 230 235 224;
+  --color-primary-300: 62 92 73;        /* hover de ítems del menú */
+  --color-primary-600: 62 108 81;       /* links y botones */
+  --color-primary-700: 47 84 62;        /* hover de links y botones */
+
+  --color-secondary-100: 236 233 226;
+  --color-secondary-300: 207 211 200;
+  --color-secondary-500: 93 106 98;
+  --color-secondary-600: 78 90 83;
+  --color-secondary-700: 62 74 67;
+
+  --color-info-100: 236 240 214;
+  --color-info-600: 111 127 42;
+  --color-info-700: 63 72 20;
+
+  --color-warning-100: 253 243 214;
+  --color-warning-600: 183 121 31;
+  --color-warning-700: 122 76 10;
+
+  --color-danger-100: 252 232 229;
+  --color-danger-600: 192 57 43;
+  --color-danger-700: 143 31 20;
+
+  --color-success-100: 220 238 226;
+  --color-success-600: 46 125 79;
+  --color-success-700: 28 78 49;
+
+  --color-notification-100: 251 227 234;
+  --color-notification-600: 201 52 108;
+
+  --color-text-main: 28 42 34;
+  --color-text-muted: 93 106 98;
+  --color-text-contrast: 255 255 255;
+  --color-text-alt2: 255 255 255;
+  --color-text-code: 201 52 108;
+
+  --color-hover-default: rgb(62 108 81 / 0.1);
+  --color-marketing-logo: 62 108 81;
+  --color-bw-blue: 62 108 81;
+
+  --color-illustration-outline: 31 51 41;
+  --color-illustration-bg-primary: 230 235 224;
+  --color-illustration-bg-secondary: 202 214 166;
+  --color-illustration-tertiary: 201 52 108;
+  --color-illustration-logo: 62 108 81;
+
+  /* Paleta "brand" (la usan los componentes nuevos): verde institucional */
+  --color-brand-050: #f0f5f1;
+  --color-brand-100: #dfeae3;
+  --color-brand-200: #c3d8cb;
+  --color-brand-300: #9cbfaa;
+  --color-brand-400: #6f9f84;
+  --color-brand-500: #528566;
+  --color-brand-600: #3e6c51;
+  --color-brand-700: #325742;
+  --color-brand-800: #284536;
+  --color-brand-900: #1f3329;
+  --color-brand-950: #0d1611;
+
+  /* Grises: neutros verdosos de la Wiki. Todos los fondos, bordes y textos del front salen de esta escala. */
+  --color-gray-050: #f5f3ef;
+  --color-gray-100: #ece9e2;
+  --color-gray-200: #dedad0;
+  --color-gray-300: #cfd3c8;
+  --color-gray-400: #96a79b;
+  --color-gray-500: #6f7f75;
+  --color-gray-600: #5d6a62;
+  --color-gray-700: #2e4035;
+  --color-gray-800: #1b2a21;
+  --color-gray-900: #141f18;
+  --color-gray-950: #0d1611;
+  --color-gray-400-rgb: 150, 167, 155;
+  --color-gray-700-rgb: 46, 64, 53;
+  --color-gray-800-rgb: 27, 42, 33;
+  --color-gray-950-rgb: 13, 22, 17;
+  --color-brand-700-rgb: 50, 87, 66;
+  --color-brand-800-rgb: 40, 69, 54;
+  --color-brand-950-rgb: 13, 22, 17;
+
+  /* Acento (en el original turquesa): rosa del Lapacho */
+  --color-teal-050: #fdf2f6;
+  --color-teal-100: #fbe3ea;
+  --color-teal-200: #f8c6d6;
+  --color-teal-300: #f5a5bf;
+  --color-teal-400: #e9709a;
+  --color-teal-500: #d84c82;
+  --color-teal-600: #c9346c;
+  --color-teal-700: #a82a59;
+  --color-teal-800: #8f1f4b;
+  --color-teal-900: #6e1738;
+  --color-teal-950: #3a0b1e;
+}
+
+/* ───────── Tema oscuro ───────── */
+.theme_dark {
+  --color-shadow: 0 0 0;
+
+  --color-background: 20 31 24;
+  --color-background-alt: 13 22 17;
+  --color-background-alt2: 62 108 81;
+  --color-background-alt3: 20 31 24;
+  --color-background-alt4: 13 22 17;
+
+  --color-primary-100: 27 42 33;
+  --color-primary-300: 36 51 41;
+  --color-primary-600: 134 185 154;
+  --color-primary-700: 170 205 185;
+
+  --color-secondary-100: 27 42 33;
+  --color-secondary-300: 46 64 53;
+  --color-secondary-500: 150 167 155;
+  --color-secondary-600: 170 185 174;
+  --color-secondary-700: 190 203 193;
+
+  --color-info-100: 40 48 20;
+  --color-info-600: 186 204 120;
+  --color-info-700: 235 240 215;
+
+  --color-warning-100: 70 48 10;
+  --color-warning-600: 230 180 80;
+  --color-warning-700: 255 240 205;
+
+  --color-danger-100: 80 30 25;
+  --color-danger-600: 239 122 109;
+  --color-danger-700: 255 230 226;
+
+  --color-success-100: 20 56 36;
+  --color-success-600: 111 207 151;
+  --color-success-700: 215 240 224;
+
+  --color-notification-100: 58 24 39;
+  --color-notification-600: 245 165 191;
+
+  --color-text-main: 233 239 233;
+  --color-text-muted: 150 167 155;
+  --color-text-contrast: 13 22 17;
+  --color-text-alt2: 255 255 255;
+  --color-text-code: 245 165 191;
+
+  --color-hover-default: rgb(134 185 154 / 0.12);
+  --color-marketing-logo: 134 185 154;
+  --color-bw-blue: 134 185 154;
+
+  --color-illustration-outline: 233 239 233;
+  --color-illustration-bg-primary: 27 42 33;
+  --color-illustration-bg-secondary: 46 64 53;
+  --color-illustration-tertiary: 245 165 191;
+  --color-illustration-logo: 134 185 154;
+}
+
+/* ───────── Tipografía ───────── */
+body,
+body input,
+body button,
+body select,
+body textarea {
+  font-family: "Oak Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: rgb(245 165 191 / 0.55); }
+
+/* ───────── Forma: botones en píldora, campos y tarjetas redondeados ───────── */
+button[bitbutton],
+a[bitbutton] {
+  border-radius: 999px;
+  font-weight: 600;
+  transition: transform 0.15s, filter 0.15s, box-shadow 0.15s;
+}
+button[bitbutton]:not(:disabled):hover,
+a[bitbutton]:hover { transform: translateY(-1px); filter: brightness(1.06); }
+button[bitbutton]:not(:disabled):active { transform: scale(0.97); }
+
+input[bitinput],
+select[bitinput],
+textarea[bitinput],
+bit-form-field > div { border-radius: 0.75rem; }
+
+bit-base-card,
+bit-card,
+.tw-rounded-xl { border-radius: 1.25rem; }
+
+/* ───────── Pantalla de login ───────── */
+/* Logo del encabezado: flor del lapacho + ECOLOGÍA / MISIONES (reemplaza el de Vaultwarden) */
+bit-landing-header header a {
+  display: grid !important;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: start;
+  column-gap: 0.7rem;
+  width: auto !important;
+}
+bit-landing-header header a::before {
+  content: "";
+  grid-row: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: url("../images/ministerio/flor-lapacho.svg") center / contain no-repeat;
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.18));
+}
+bit-landing-header header a bit-svg { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+bit-landing-header header a bit-svg svg { display: none; }
+bit-landing-header header a bit-svg::before {
+  content: "ECOLOGÍA";
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: rgb(var(--color-primary-600));
+}
+bit-landing-header header a bit-svg::after {
+  content: "MISIONES";
+  margin-top: 0.22rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  line-height: 1;
+  color: rgb(var(--color-primary-600));
+}
+
+/* Ilustración del hero: la caja fuerte se cambia por la flor */
+bit-landing-hero bit-svg svg { display: none; }
+bit-landing-hero bit-svg::before {
+  content: "";
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  background: url("../images/ministerio/flor-lapacho.svg") center / contain no-repeat;
+  filter: drop-shadow(0 6px 14px rgb(201 52 108 / 0.28));
+}
+
+/* Se saca el dibujo decorativo de fondo de Vaultwarden */
+auth-anon-layout div[class*="tw-opacity-[.11]"] { display: none; }
