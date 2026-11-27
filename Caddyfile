@@ -5,5 +5,11 @@
 
 https://10.0.0.231:4444 {
     tls internal
+
+    # Vaultwarden sirve los archivos de idioma con "immutable, max-age=7 días": el navegador no los vuelve a pedir
+    # y no ve los cambios de branding/locales. Con "no-cache" siempre los revalida (el 304 es barato).
+    @idiomas path */locales/*
+    header @idiomas Cache-Control "no-cache"
+
     reverse_proxy vaultwarden:80
 }

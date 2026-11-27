@@ -1,0 +1,7 @@
+# Contenido de vaultwarden-ministerio/.env para este despliegue.
+# ADMIN_TOKEN: generarlo con `openssl rand -hex 32`; no commitear el .env.
+
+DOMAIN=https://claves.ecologia.misiones.gob.ar
+SIGNUPS_ALLOWED=false
+ADMIN_TOKEN=
+WEBSOCKET_ENABLED=true

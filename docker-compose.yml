@@ -26,8 +26,9 @@ services:
     depends_on:
       - vaultwarden
     ports:
-      - "4444:4444"
+      # Solo localhost: el proxy interno (despliegue/proxy) lo alcanza por 8083.
+      - "127.0.0.1:8083:80"
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./Caddyfile.interno:/etc/caddy/Caddyfile:ro
       - ./caddy-data:/data
       - ./caddy-config:/config

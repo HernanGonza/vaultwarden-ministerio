@@ -1,0 +1,15 @@
+{
+	# haproxy ya terminó TLS: este Caddy solo sirve HTTP por loopback.
+	auto_https off
+	admin off
+	persist_config off
+}
+
+:80 {
+	# Vaultwarden sirve los archivos de idioma con "immutable, max-age=7 días":
+	# el navegador no los vuelve a pedir y no ve los cambios de branding/locales.
+	@idiomas path */locales/*
+	header @idiomas Cache-Control "no-cache"
+
+	reverse_proxy vaultwarden:80
+}

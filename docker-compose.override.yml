@@ -1,10 +1,5 @@
 services:
   vaultwarden:
+    # Dominio propio (sin el prefijo /claves de ecodatos). Viene del .env.
     environment:
-      DOMAIN: https://ecodatos.ecologia.misiones.gob.ar/claves
-    networks: [default, supabase]
-
-networks:
-  supabase:
-    name: supabase
-    external: true
+      DOMAIN: ${DOMAIN:?definir DOMAIN en .env}

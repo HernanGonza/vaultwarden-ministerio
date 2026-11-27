@@ -1,12 +1,16 @@
 {
-  "lastQuery": "y dice welcome back, traduci todo lo que esté en ingles que no esté traducido",
+  "lastQuery": "la cuenta esta con idioma español, no me tomes de boludo, se perfectamente donde mirar, no se aplicaron ninguna de tus traducciones. el \"es\" que trae incluido es el que se sigue viendo, que tiene partes que no estan traducidas, entonces lo que tenes que hacer es tocar ese \"es\", no hacer una capa nueva encima, porque la configuracion te va a pisar siempre tu traduccion",
   "perAgentQuery": {},
   "graftReads": 0,
   "sourceReads": 0,
   "savedTokens": 0,
-  "injectedPointers": [],
-  "nudges": 0,
-  "inputCostMicros": 2045285,
-  "inputTokensBilled": 7242069,
-  "lastBillingUuid": "9f549da8-73c2-4341-bf97-14f70ecf13c8"
+  "injectedPointers": [
+    "branding/tools/generar-locale-es.py",
+    "branding/tools/generar-locale-es.py:L46-L51",
+    "branding/tools/generar-iconos.py:L38-L65"
+  ],
+  "nudges": 2,
+  "inputCostMicros": 2714072,
+  "inputTokensBilled": 10487334,
+  "lastBillingUuid": "74ef47b6-5c78-420b-a0a1-a95597996213"
 }
